@@ -6,17 +6,17 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class BlinkerClassLoaderTest {
+public class AnnotationLoaderTest {
     @Test
     public void returnsSizeOfZeroWhenNoClassesToLoad() {
-        List<Class> classes = new BlinkerClassLoader().load(this, TestAnnotation.class);
+        List<Class> classes = new AnnotationLoader().load(this, TestAnnotation.class);
 
         assertEquals(0, classes.size());
     }
 
     @Test
     public void foo() {
-        List<Class> classes = new BlinkerClassLoader().load(this, Blinker.class);
+        List<Class> classes = new AnnotationLoader().load(this, Blinker.class);
 
         assertEquals("TestBlinker", classes.get(0).getSimpleName());
     }
