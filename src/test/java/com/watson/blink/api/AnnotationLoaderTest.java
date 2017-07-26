@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AnnotationLoaderTest {
     private AnnotationLoader loader;
@@ -19,14 +19,14 @@ public class AnnotationLoaderTest {
     public void returnsSizeOfZeroWhenNoClassesToLoad() {
         List<Class> classes = loader.load(this, TestAnnotation.class);
 
-        assertEquals(0, classes.size());
+        assertThat(classes).isEmpty();
     }
 
     @Test
     public void foo() {
         List<Class> classes = loader.load(this, Blinker.class);
 
-        assertEquals("TestBlinker", classes.get(0).getSimpleName());
+        assertThat(classes.get(0).getSimpleName()).isEqualTo("TestBlinker");
     }
 
     public @interface TestAnnotation {
