@@ -5,7 +5,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 public class RuleExecutor {
-    public <T extends BlinkRule> List<Class<? extends BlinkRule>> execute(List<Class<? extends BlinkRule>> classes) {
+    public List<Class<?>> execute(List<Class<?>> classes) {
         return classes.stream().filter(klass -> {
             try {
                 return (Boolean) klass.getMethod("shouldRun").invoke(klass.newInstance());

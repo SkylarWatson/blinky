@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnnotationLoader {
-    public <T> List<Class> load(T t, Class<? extends Annotation> annotation) {
+    public <T> List<Class<?>> load(T t, Class<? extends Annotation> annotation) {
         ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.addUrls(ClasspathHelper.forClass(t.getClass()));
 
