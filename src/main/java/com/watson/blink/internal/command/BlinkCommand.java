@@ -1,4 +1,4 @@
-package com.watson.blink.internal;
+package com.watson.blink.internal.command;
 
 public class BlinkCommand {
     private byte[] data = new byte[] {};

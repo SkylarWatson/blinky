@@ -1,5 +1,6 @@
-package com.watson.blink.internal;
+package com.watson.blink.internal.command;
 
+import com.watson.blink.internal.command.CommandFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
