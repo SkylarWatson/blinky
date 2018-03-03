@@ -74,7 +74,7 @@ public class BlinkFinderTest {
     }
 
 //    @Test
-//    public void foo() throws UsbException {
+//    public void send() throws UsbException {
 //        BlinkFinder finder = new BlinkFinder();
 //        finder.sendCommand(finder.find().get(1));
 //    }

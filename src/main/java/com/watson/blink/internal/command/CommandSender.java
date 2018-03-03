@@ -11,7 +11,7 @@ public class CommandSender {
     private CommandFactory commandFactory = new CommandFactory();
     private BlinkFinder finder = new BlinkFinder();
 
-    public void foo() {
+    public void send() {
         try {
             UsbControlIrp usbControlIrp = irpFactory.create();
             usbControlIrp.setData(commandFactory.create().getData());

@@ -38,7 +38,7 @@ public class CommandSenderTest {
         when(irpFactory.create()).thenReturn(usbControlIrp);
         when(commandFactory.create()).thenReturn(new BlinkCommand());
 
-        sender.foo();
+        sender.send();
 
         verify(finder.find().get(0)).syncSubmit(usbControlIrp);
     }
@@ -51,7 +51,7 @@ public class CommandSenderTest {
         when(irpFactory.create()).thenReturn(usbControlIrp);
         when(commandFactory.create()).thenReturn(command);
 
-        sender.foo();
+        sender.send();
 
         assertThat(usbControlIrp.getData()).isEqualTo(command.getData());
     }
