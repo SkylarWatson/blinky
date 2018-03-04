@@ -4,18 +4,18 @@ import com.watson.blink.internal.factory.UsbHubFactory;
 
 import javax.usb.UsbDevice;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class BlinkFinder {
     private UsbHubFactory factory = new UsbHubFactory();
 
     public List<UsbDevice> find() {
         List<UsbDevice> attachedUsbDevices = factory.create();
-        return attachedUsbDevices.stream().filter(this::isCorrectVendorProduct).collect(Collectors.toList());
+        return attachedUsbDevices.stream().filter(this::isCorrectProduct).collect(toList());
     }
 
-    private boolean isCorrectVendorProduct(UsbDevice device) {
-        return device.getUsbDeviceDescriptor().idProduct() == 0x01ed &&
-               device.getUsbDeviceDescriptor().idVendor() == 0x27b8;
+    private boolean isCorrectProduct(UsbDevice device) {
+        return device.getUsbDeviceDescriptor().idProduct() == 0x01ed;
     }
 }

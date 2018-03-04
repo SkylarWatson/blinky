@@ -31,27 +31,16 @@ public class BlinkFinderTest {
         when(factory.create()).thenReturn(singletonList(device));
 
         when(device.getUsbDeviceDescriptor()).thenReturn(descriptor);
-        when(descriptor.idVendor()).thenReturn((short) 0x27b8);
         when(descriptor.idProduct()).thenReturn((short) 0x0000);
 
         assertThat(finder.find()).isEmpty();
     }
 
     @Test
-    public void noDevicesReturnedWhenVendorIdDoesntMatch() {
-        when(factory.create()).thenReturn(singletonList(device));
-        when(device.getUsbDeviceDescriptor()).thenReturn(descriptor);
-        when(descriptor.idVendor()).thenReturn((short) 0x0000);
-
-        assertThat(finder.find()).isEmpty();
-    }
-
-    @Test
-    public void deviceIsReturnedWhenProductAndVendorMatches() {
+    public void deviceIsReturnedWhenProductMatches() {
         when(factory.create()).thenReturn(singletonList(device));
         when(device.getUsbDeviceDescriptor()).thenReturn(descriptor);
 
-        when(descriptor.idVendor()).thenReturn((short) 0x27b8);
         when(descriptor.idProduct()).thenReturn((short) 0x01ed);
 
         assertThat(finder.find()).containsOnly(device);
