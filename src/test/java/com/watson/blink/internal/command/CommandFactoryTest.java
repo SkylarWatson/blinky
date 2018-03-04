@@ -15,10 +15,10 @@ public class CommandFactoryTest {
     public void createBlinkCommandToSetColorGreen() {
         assertThat(factory.create().getData()).isEqualTo(new byte[] {
                 0x01,
-                (byte) 'n',
-                (byte) 124,
-                (byte) 252,
-                0
+                (byte) 'c',
+                (byte) 155,
+                (byte) 0,
+                (byte) 0
         });
     }
 }
