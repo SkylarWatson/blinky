@@ -45,21 +45,21 @@ public class RuleExecutorTest {
 
     static class StubRule implements BlinkRule {
         @Override
-        public boolean shouldRun() {
+        public boolean illuminate() {
             return true;
         }
     }
 
     static class StubRule2 implements BlinkRule {
         @Override
-        public boolean shouldRun() {
+        public boolean illuminate() {
             return true;
         }
     }
 
     static class StubRuleFalse implements BlinkRule {
         @Override
-        public boolean shouldRun() {
+        public boolean illuminate() {
             return false;
         }
     }

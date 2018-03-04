@@ -8,7 +8,7 @@ public class RuleExecutor {
     public List<Class<?>> execute(List<Class<?>> classes) {
         return classes.stream().filter(klass -> {
             try {
-                return (Boolean) klass.getMethod("shouldRun").invoke(klass.newInstance());
+                return (Boolean) klass.getMethod("illuminate").invoke(klass.newInstance());
             } catch (Exception ignore) {
                 ignore.printStackTrace();
             }

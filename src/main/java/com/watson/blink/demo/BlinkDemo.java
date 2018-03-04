@@ -6,7 +6,7 @@ import com.watson.blink.api.Blinker;
 @Blinker
 public class BlinkDemo implements BlinkRule {
     @Override
-    public boolean shouldRun() {
+    public boolean illuminate() {
         return true;
     }
 }
