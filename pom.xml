@@ -21,6 +21,13 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Skylar R Watson</name>
+            <email>skylarrwatson@gmail.com</email>
+        </developer>
+    </developers>
+
     <dependencies>
         <dependency>
             <groupId>org.usb4java</groupId>
