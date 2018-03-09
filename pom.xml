@@ -9,6 +9,10 @@
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <name>Blinky</name>
+    <description>Java API for interacting with blink(1) USB</description>
+    <url>https://github.com/SkylarWatson/blinky</url>
+
     <dependencies>
         <dependency>
             <groupId>org.usb4java</groupId>
