@@ -1,6 +1,16 @@
 # Blinky
 Blinky is a Java wrapper around [Blink(1)](https://blink1.thingm.com/).  It was initially written to manage Blink(1) USB operations programmatically.  
 
+## Maven Dependency
+
+```xml
+<dependency>
+  <groupId>com.skylarwatson</groupId>
+  <artifactId>blinky</artifactId>
+  <version>1.1</version>
+</dependency>
+```
+
 ## Usage
 
 First initialize your blinky project
