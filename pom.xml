@@ -6,7 +6,7 @@
     <groupId>com.skylarwatson</groupId>
     <artifactId>blinky</artifactId>
     <packaging>jar</packaging>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
 
     <name>Blinky</name>
     <description>Java API for interacting with blink(1) USB</description>
