@@ -37,9 +37,8 @@ public class CommandSenderTest {
         DefaultUsbControlIrp usbControlIrp = defaultUsbControllerIrp();
 
         when(irpFactory.create()).thenReturn(usbControlIrp);
-        when(commandFactory.create()).thenReturn(new BlinkCommand());
 
-        sender.send();
+        sender.send(new BlinkCommand());
 
         verify(finder.find().get(0)).syncSubmit(usbControlIrp);
     }
@@ -50,9 +49,8 @@ public class CommandSenderTest {
         BlinkCommand command = helloCommand();
 
         when(irpFactory.create()).thenReturn(usbControlIrp);
-        when(commandFactory.create()).thenReturn(command);
 
-        sender.send();
+        sender.send(command);
 
         assertThat(usbControlIrp.getData()).isEqualTo(command.getData());
     }

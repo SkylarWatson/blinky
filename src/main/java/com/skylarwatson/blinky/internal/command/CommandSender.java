@@ -8,13 +8,12 @@ import javax.usb.UsbException;
 
 public class CommandSender {
     private UsbControlIrpFactory irpFactory = new UsbControlIrpFactory();
-    private CommandFactory commandFactory = new CommandFactory();
     private BlinkFinder finder = new BlinkFinder();
 
-    public void send() {
+    public void send(BlinkCommand command) {
         try {
             UsbControlIrp usbControlIrp = irpFactory.create();
-            usbControlIrp.setData(commandFactory.create().getData());
+            usbControlIrp.setData(command.getData());
 
             finder.find().get(0).syncSubmit(usbControlIrp);
         } catch (UsbException ignore) {
