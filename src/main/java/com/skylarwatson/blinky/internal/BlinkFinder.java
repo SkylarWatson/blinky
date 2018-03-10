@@ -11,8 +11,7 @@ public class BlinkFinder {
     private UsbHubFactory factory = new UsbHubFactory();
 
     public List<UsbDevice> find() {
-        List<UsbDevice> attachedUsbDevices = factory.create();
-        return attachedUsbDevices.stream().filter(this::isCorrectProduct).collect(toList());
+        return factory.create().stream().filter(this::isCorrectProduct).collect(toList());
     }
 
     private boolean isCorrectProduct(UsbDevice device) {
