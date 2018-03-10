@@ -1,4 +1,5 @@
-# Blinky
+# ![Blinky Logo](https://github.com/SkylarWatson/blinky/blob/master/src/main/resources/images/blinky-icon.png?raw=true)
+
 Blinky is a Java wrapper around [Blink(1)](https://blink1.thingm.com/).  It was initially written to manage Blink(1) USB operations programmatically.  
 
 ## Maven Dependency
