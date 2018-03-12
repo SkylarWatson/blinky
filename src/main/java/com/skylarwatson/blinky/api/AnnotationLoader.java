@@ -7,21 +7,17 @@ import org.reflections.util.ConfigurationBuilder;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class AnnotationLoader {
     public <T> List<BlinkerContext> load(T t, Class<? extends Annotation> annotation) {
-        ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
-        configurationBuilder.addUrls(ClasspathHelper.forClass(t.getClass()));
+        ConfigurationBuilder builder = new ConfigurationBuilder();
+        builder.addUrls(ClasspathHelper.forClass(t.getClass()));
 
-        return new ArrayList<>(new Reflections(configurationBuilder).getTypesAnnotatedWith(annotation)).stream().map(new Function<Class<?>, BlinkerContext>() {
-            @Override
-            public BlinkerContext apply(Class<?> klass) {
-                BlinkerContext context = new BlinkerContext();
-                context.setKlass(klass);
-                return context;
-            }
+        return new ArrayList<>(new Reflections(builder).getTypesAnnotatedWith(annotation)).stream().map(klass -> {
+            BlinkerContext context = new BlinkerContext();
+            context.setKlass(klass);
+            return context;
         }).collect(Collectors.toList());
     }
 }
