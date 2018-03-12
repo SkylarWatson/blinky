@@ -20,7 +20,7 @@ public class AnnotationLoaderTest {
 
     @Test
     public void returnClassNameAnnotatedWithBlinkerAnnotation() {
-        assertThat(loader.load(this, Blinker.class).get(0).getSimpleName()).isEqualTo("TestBlinker");
+        assertThat(loader.load(this, Blinker.class).get(0).getKlass().getSimpleName()).isEqualTo("TestBlinker");
     }
 
     public @interface TestAnnotation {

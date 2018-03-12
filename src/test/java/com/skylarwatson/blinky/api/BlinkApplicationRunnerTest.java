@@ -30,7 +30,10 @@ public class BlinkApplicationRunnerTest {
 
     @Test
     public void illuminateIfAnyClassIsReturned() {
-        when(executor.execute(any())).thenReturn(singletonList(BlinkRule.class));
+        BlinkerContext context = new BlinkerContext();
+        context.setKlass(BlinkRule.class);
+
+        when(executor.execute(any())).thenReturn(singletonList(context));
 
         runner.run();
 

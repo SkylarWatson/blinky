@@ -5,10 +5,10 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 public class RuleExecutor {
-    public List<Class<?>> execute(List<Class<?>> classes) {
-        return classes.stream().filter(klass -> {
+    public List<BlinkerContext> execute(List<BlinkerContext> contexts) {
+        return contexts.stream().filter(context -> {
             try {
-                return (Boolean) klass.getMethod("illuminate").invoke(klass.newInstance());
+                return (Boolean) context.getKlass().getMethod("illuminate").invoke(context.getKlass().newInstance());
             } catch (Exception ignore) {
                 ignore.printStackTrace();
             }

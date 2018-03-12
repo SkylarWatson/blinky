@@ -3,11 +3,10 @@ package com.skylarwatson.blinky.api;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
-import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,19 +25,19 @@ public class RuleExecutorTest {
 
     @Test
     public void returnEmptyListWhenMethodReturnsFalse() {
-        assertThat(executor.execute(singletonList(StubRuleFalse.class))).isEmpty();
+        assertThat(executor.execute(createContextWith(StubRuleFalse.class))).isEmpty();
     }
 
     @Test
     public void returnClassNameWhenMethodReturnsTrue() {
-        assertThat(executor.execute(singletonList(StubRule.class)).get(0).getSimpleName()).isEqualTo("StubRule");
+        assertThat(executor.execute(createContextWith(StubRule.class)).get(0).getKlass().getSimpleName()).isEqualTo("StubRule");
     }
 
     @Test
     public void returnAllClassNamesWhenMethodsReturnTrue() {
         List<String> result = executor.execute(
-                asList(StubRule.class, StubRule2.class, StubRuleFalse.class)
-        ).stream().map(Class::getSimpleName).collect(toList());
+                createContextWith(StubRule.class, StubRule2.class, StubRuleFalse.class)
+        ).stream().map(it -> it.getKlass().getSimpleName()).collect(toList());
 
         assertThat(result).containsOnly("StubRule", "StubRule2");
     }
@@ -62,5 +61,17 @@ public class RuleExecutorTest {
         public boolean illuminate() {
             return false;
         }
+    }
+
+    private List<BlinkerContext> createContextWith(Class<?>... rules) {
+        List<BlinkerContext> result = new ArrayList<>();
+
+        for (Class klass : rules) {
+            BlinkerContext context = new BlinkerContext();
+            context.setKlass(klass);
+            result.add(context);
+        }
+
+        return result;
     }
 }
