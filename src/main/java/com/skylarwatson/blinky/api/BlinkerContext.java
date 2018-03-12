@@ -1,14 +1,16 @@
 package com.skylarwatson.blinky.api;
 
+import com.skylarwatson.blinky.api.config.RGB;
+
 public class BlinkerContext {
     private Class<?> klass;
-    private String color;
+    private RGB color;
 
-    public String getColor() {
+    public RGB getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(RGB color) {
         this.color = color;
     }
 
