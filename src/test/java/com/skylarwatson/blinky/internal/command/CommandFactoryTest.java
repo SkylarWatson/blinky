@@ -1,5 +1,6 @@
 package com.skylarwatson.blinky.internal.command;
 
+import com.skylarwatson.blinky.api.config.RGB;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -13,7 +14,7 @@ public class CommandFactoryTest {
 
     @Test
     public void createBlinkCommandToSetColorGreen() {
-        assertThat(factory.create().getData()).isEqualTo(new byte[] {
+        assertThat(factory.create(RGB.RED).getData()).isEqualTo(new byte[] {
                 0x01,
                 (byte) 'c',
                 (byte) 155,

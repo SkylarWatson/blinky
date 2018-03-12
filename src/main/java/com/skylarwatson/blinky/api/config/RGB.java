@@ -11,4 +11,16 @@ public enum RGB {
         this.g = g;
         this.b = b;
     }
+
+    public byte getR() {
+        return r;
+    }
+
+    public byte getB() {
+        return b;
+    }
+
+    public byte getG() {
+        return g;
+    }
 }
