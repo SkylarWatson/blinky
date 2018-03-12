@@ -17,6 +17,7 @@ public class AnnotationLoader {
         return new ArrayList<>(new Reflections(builder).getTypesAnnotatedWith(annotation)).stream().map(klass -> {
             BlinkerContext context = new BlinkerContext();
             context.setKlass(klass);
+            context.setColor(klass.getAnnotation(Blinker.class).color());
             return context;
         }).collect(Collectors.toList());
     }
