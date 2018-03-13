@@ -1,7 +1,5 @@
 package com.skylarwatson.blinky.api;
 
-import com.skylarwatson.blinky.api.config.RGB;
-
 import java.util.List;
 
 public class BlinkApplicationRunner {
@@ -13,7 +11,7 @@ public class BlinkApplicationRunner {
         List<BlinkerContext> result = executor.execute(annotationLoader.load(this, Blinker.class));
 
         if (!result.isEmpty()) {
-            illuminator.illuminate(RGB.RED);
+            illuminator.illuminate(result.get(0).getColor());
         }
     }
 }

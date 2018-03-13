@@ -33,11 +33,12 @@ public class BlinkApplicationRunnerTest {
     public void illuminateIfAnyClassIsReturned() {
         BlinkerContext context = new BlinkerContext();
         context.setKlass(BlinkRule.class);
+        context.setColor(RGB.GREEN);
 
         when(executor.execute(any())).thenReturn(singletonList(context));
 
         runner.run();
 
-        verify(illuminator).illuminate(RGB.RED);
+        verify(illuminator).illuminate(RGB.GREEN);
     }
 }
