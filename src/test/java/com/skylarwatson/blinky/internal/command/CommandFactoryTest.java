@@ -19,7 +19,10 @@ public class CommandFactoryTest {
                 (byte) 'c',
                 (byte) 155,
                 (byte) 0,
-                (byte) 0
+                (byte) 0,
+                (1 & 0xff),
+                (1000 >> 8),
+                0x00
         });
     }
 }
