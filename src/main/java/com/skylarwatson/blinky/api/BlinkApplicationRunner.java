@@ -8,7 +8,7 @@ public class BlinkApplicationRunner {
     private RuleExecutor executor = new RuleExecutor();
 
     public void run() {
-        List result = executor.execute(annotationLoader.load(this, Blinker.class));
+        List<BlinkerContext> result = executor.execute(annotationLoader.load(this, Blinker.class));
 
         if (!result.isEmpty()) {
             illuminator.illuminate();
