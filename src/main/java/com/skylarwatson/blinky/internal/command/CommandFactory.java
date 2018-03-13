@@ -1,7 +1,6 @@
 package com.skylarwatson.blinky.internal.command;
 
 import com.skylarwatson.blinky.api.BlinkerContext;
-import com.skylarwatson.blinky.api.config.LED;
 
 public class CommandFactory {
     public BlinkCommand create(BlinkerContext context) {
@@ -14,7 +13,7 @@ public class CommandFactory {
                 context.getColor().getB(),
                 (1 & 0xff),
                 (1000 >> 8),
-                LED.BOTH.value()
+                context.getLed().value()
         });
 
         return blinkCommand;
