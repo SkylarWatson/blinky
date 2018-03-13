@@ -10,7 +10,7 @@ Blinky is a Java wrapper around [Blink(1)](https://blink1.thingm.com/).  It was 
 <dependency>
   <groupId>com.skylarwatson</groupId>
   <artifactId>blinky</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
 </dependency>
 ```
 
