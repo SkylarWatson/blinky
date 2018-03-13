@@ -1,5 +1,6 @@
 package com.skylarwatson.blinky.internal.command;
 
+import com.skylarwatson.blinky.api.BlinkerContext;
 import com.skylarwatson.blinky.api.config.LED;
 import com.skylarwatson.blinky.api.config.RGB;
 import org.junit.Test;
@@ -15,7 +16,10 @@ public class CommandFactoryTest {
 
     @Test
     public void createBlinkCommandToSetColorGreen() {
-        assertThat(factory.create(RGB.RED).getData()).isEqualTo(new byte[] {
+        BlinkerContext context = new BlinkerContext();
+        context.setColor(RGB.RED);
+
+        assertThat(factory.create(context).getData()).isEqualTo(new byte[] {
                 0x01,
                 (byte) 'c',
                 (byte) 155,

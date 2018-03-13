@@ -1,6 +1,5 @@
 package com.skylarwatson.blinky.api;
 
-import com.skylarwatson.blinky.api.config.RGB;
 import com.skylarwatson.blinky.internal.command.BlinkCommand;
 import com.skylarwatson.blinky.internal.command.CommandFactory;
 import com.skylarwatson.blinky.internal.command.CommandSender;
@@ -24,17 +23,19 @@ public class IlluminatorTest {
     public void sendCommand() {
         BlinkCommand command = new BlinkCommand();
 
-        when(factory.create(any(RGB.class))).thenReturn(command);
+        when(factory.create(any(BlinkerContext.class))).thenReturn(command);
 
-        illuminator.illuminate(RGB.RED);
+        illuminator.illuminate(new BlinkerContext());
 
         verify(commandSender).send(command);
     }
 
     @Test
     public void sendCommand_withRgbValuePassedIn() {
-        illuminator.illuminate(RGB.GREEN);
+        BlinkerContext context = new BlinkerContext();
 
-        verify(factory).create(RGB.GREEN);
+        illuminator.illuminate(context);
+
+        verify(factory).create(context);
     }
 }
