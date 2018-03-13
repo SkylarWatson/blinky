@@ -1,5 +1,6 @@
 package com.skylarwatson.blinky.api;
 
+import com.skylarwatson.blinky.api.config.LED;
 import com.skylarwatson.blinky.api.config.RGB;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,11 +30,16 @@ public class AnnotationLoaderTest {
         assertThat(loader.load(this, Blinker.class).get(0).getColor()).isEqualTo(RGB.GREEN);
     }
 
+    @Test
+    public void returnLedForAnnotatedClass() {
+        assertThat(loader.load(this, Blinker.class).get(0).getLed()).isEqualTo(LED.TOP);
+    }
+
     public @interface TestAnnotation {
 
     }
 
-    @Blinker(color = RGB.GREEN)
+    @Blinker(color = RGB.GREEN, led = LED.TOP)
     public class TestBlinker {
 
     }

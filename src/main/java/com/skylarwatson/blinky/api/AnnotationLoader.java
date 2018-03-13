@@ -18,6 +18,7 @@ public class AnnotationLoader {
             BlinkerContext context = new BlinkerContext();
             context.setKlass(klass);
             context.setColor(klass.getAnnotation(Blinker.class).color());
+            context.setLed(klass.getAnnotation(Blinker.class).led());
             return context;
         }).collect(Collectors.toList());
     }
