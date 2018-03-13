@@ -1,19 +1,19 @@
 package com.skylarwatson.blinky.api.config;
 
 public enum RGB {
-    RED((byte) 155, (byte) 0, (byte) 0),
-    GREEN((byte) 0, (byte) 128, (byte) 0),
-    BLUE((byte) 0, (byte) 0, (byte) 255),
-    WHITE((byte) 255, (byte) 255, (byte) 255),
-    YELLOW((byte) 255, (byte) 255, (byte) 0),
-    OFF((byte) 0, (byte) 0, (byte) 0);
+    RED(155, 0, 0),
+    GREEN(0, 128, 0),
+    BLUE(0, 0, 255),
+    WHITE(255, 255, 255),
+    YELLOW(255, 255, 0),
+    OFF(0, 0, 0);
 
     byte r, b, g;
 
-    RGB(byte r, byte g, byte b) {
-        this.r = r;
-        this.g = g;
-        this.b = b;
+    RGB(int r, int g, int b) {
+        this.r = (byte) r;
+        this.g = (byte) g;
+        this.b = (byte) b;
     }
 
     public byte getR() {
