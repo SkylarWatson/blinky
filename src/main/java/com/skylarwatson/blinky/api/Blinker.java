@@ -8,5 +8,5 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Blinker {
-    RGB color() default RGB.GREEN;
+    RGB color() default RGB.RED;
 }
