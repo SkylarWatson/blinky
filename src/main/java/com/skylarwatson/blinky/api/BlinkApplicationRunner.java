@@ -11,7 +11,7 @@ public class BlinkApplicationRunner {
         List<BlinkerContext> result = executor.execute(annotationLoader.load(this, Blinker.class));
 
         if (!result.isEmpty()) {
-            illuminator.illuminate(result.get(0).getColor());
+            illuminator.illuminate(result.get(0));
         }
     }
 }

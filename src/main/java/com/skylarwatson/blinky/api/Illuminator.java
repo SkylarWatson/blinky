@@ -11,4 +11,8 @@ public class Illuminator {
     public void illuminate(RGB rgb) {
         commandSender.send(factory.create(rgb));
     }
+
+    public void illuminate(BlinkerContext context) {
+        illuminate(context.getColor());
+    }
 }
