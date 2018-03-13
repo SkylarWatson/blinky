@@ -1,5 +1,6 @@
 package com.skylarwatson.blinky.api;
 
+import com.skylarwatson.blinky.api.config.RGB;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -37,6 +38,6 @@ public class BlinkApplicationRunnerTest {
 
         runner.run();
 
-        verify(illuminator).illuminate();
+        verify(illuminator).illuminate(RGB.RED);
     }
 }

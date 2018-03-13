@@ -8,7 +8,7 @@ public class Illuminator {
     private CommandSender commandSender = new CommandSender();
     private CommandFactory factory = new CommandFactory();
 
-    public void illuminate() {
-        commandSender.send(factory.create(RGB.RED));
+    public void illuminate(RGB rgb) {
+        commandSender.send(factory.create(rgb));
     }
 }

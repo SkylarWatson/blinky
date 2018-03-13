@@ -10,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -23,10 +24,17 @@ public class IlluminatorTest {
     public void sendCommand() {
         BlinkCommand command = new BlinkCommand();
 
-        when(factory.create(RGB.RED)).thenReturn(command);
+        when(factory.create(any(RGB.class))).thenReturn(command);
 
-        illuminator.illuminate();
+        illuminator.illuminate(RGB.RED);
 
         verify(commandSender).send(command);
+    }
+
+    @Test
+    public void sendCommand_withRgbValuePassedIn() {
+        illuminator.illuminate(RGB.GREEN);
+
+        verify(factory).create(RGB.GREEN);
     }
 }
