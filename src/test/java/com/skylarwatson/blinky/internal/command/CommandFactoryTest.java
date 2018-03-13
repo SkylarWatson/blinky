@@ -1,5 +1,6 @@
 package com.skylarwatson.blinky.internal.command;
 
+import com.skylarwatson.blinky.api.config.LED;
 import com.skylarwatson.blinky.api.config.RGB;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +23,7 @@ public class CommandFactoryTest {
                 (byte) 0,
                 (1 & 0xff),
                 (1000 >> 8),
-                0x00
+                LED.BOTH.value()
         });
     }
 }
