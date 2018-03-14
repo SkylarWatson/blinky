@@ -38,9 +38,4 @@ public class AnnotationLoaderTest {
     public @interface TestAnnotation {
 
     }
-
-    @Blinker(color = RGB.GREEN, led = LED.TOP)
-    public class TestBlinker {
-
-    }
 }
