@@ -44,22 +44,10 @@ To change the led color supply an RGB value to the `@Blinker` annotation.
 
 ```java
 @Blinker(color = RGB.RED)
-public class BlinkDemo implements BlinkRule {
-    @Override
-    public boolean illuminate() {
-        return true;
-    }
-}
 ```
 
 You can select which led to enable by providing a `LED` value to the `@Blinker` annotation
 
 ```java
 @Blinker(led = LED.TOP)
-public class BlinkDemo implements BlinkRule {
-    @Override
-    public boolean illuminate() {
-        return true;
-    }
-}
 ```
