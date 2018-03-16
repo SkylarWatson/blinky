@@ -43,7 +43,7 @@ If `illuminate()` returns `true` blink(1) USB will turn red
 To change the led color supply an RGB value to the `@Blinker` annotation.
 
 ```java
-@Blinker(color = RGB.RED)
+@Blinker(color = RGB.GREEN)
 ```
 
 You can select which led to enable by providing a `LED` value to the `@Blinker` annotation
