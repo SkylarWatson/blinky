@@ -38,6 +38,8 @@ public class BlinkDemo implements BlinkRule {
 }
 ```
 
+If `illuminate()` returns `true` blink(1) USB will turn red
+
 To change the led color supply an RGB value to the `@Blinker` annotation.
 
 ```java
@@ -50,4 +52,14 @@ public class BlinkDemo implements BlinkRule {
 }
 ```
 
-If `illuminate()` returns `true` blink(1) USB will turn red
+You can select which led to enable by providing a `LED` value to the `@Blinker` annotation
+
+```java
+@Blinker(led = LED.TOP)
+public class BlinkDemo implements BlinkRule {
+    @Override
+    public boolean illuminate() {
+        return true;
+    }
+}
+```
